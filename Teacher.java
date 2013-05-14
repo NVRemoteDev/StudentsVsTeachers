@@ -56,6 +56,12 @@ public class Teacher {
     public String[] getAbilities() {
         return abilities;
     }
+    public void showAbilities() {
+        System.out.println("Abilities:");
+        for(int i = 0; i < abilities.length; i++) {
+            System.out.println(abilities[i]);
+        }
+    }
     public String getRandomAbility() {
         Random generator = new Random();
         int x = generator.nextInt(abilities.length);

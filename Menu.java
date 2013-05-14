@@ -88,7 +88,7 @@ public class Menu {
             case 1:
                 return false;
             case 2:
-                player.showPlayerInventory();
+                player.showPlayerInventory(true);
                 break;
             case 3: 
                 System.exit(0);
@@ -103,20 +103,42 @@ public class Menu {
         return true;
     }
     
-    public static void GameOver(Student player, Teacher teacher) {
+    public static void GameOver(Student player, Teacher teacher, int battles) {
         System.out.println("The classwork was overwhelming! Beaten by " 
                 + teacher.getName());
-        System.out.println(teacher.getName() + "'s HP remaining: " + teacher.getHP());
-        System.out.println(player.getName() + "'s items: ");
+        System.out.println("Winner info:");
+        System.out.println("Name: " + teacher.getName());
+        System.out.println("Strength: " + teacher.getStrength());
+        System.out.println("Hitpoints: " + teacher.getHP());
+        teacher.showAbilities();
+        System.out.println();
+        System.out.println("Loser info:");
+        System.out.println("Name: " + player.getName());
+        System.out.println("Strength: " + player.getStrength());
+        System.out.println("Hitpoints: " + player.getHP());
+        System.out.println("Classes attended: " + battles);
+        player.showPlayerInventory(false);
         System.exit(0);
     }
-    public static void WinScreen(Student player, Teacher teacher) {
+    public static void WinScreen(Student player, Teacher teacher, int battles) {
         if(teacher == null) { 
             Teacher teacher1 = new Teacher();
             teacher = teacher1;
         }
         System.out.println("Congratulations " + player + 
                 ", you passed " + teacher.getName() + "'s class!");
+        System.out.println("Winner info:");
+        System.out.println("Name: " + player.getName());
+        System.out.println("Strength: " + player.getStrength());
+        System.out.println("Hitpoints: " + player.getHP());
+        System.out.println("Classes attended: " + battles);
+        player.showPlayerInventory(false);
+        
+        System.out.println();
+        System.out.println("Loser info:");
+        System.out.println("Name: " + teacher.getName());
+        System.out.println("Strength: " + teacher.getStrength());
+        teacher.showAbilities();
         System.exit(0);
     }
 }

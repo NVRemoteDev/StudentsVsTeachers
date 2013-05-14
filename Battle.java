@@ -9,7 +9,7 @@ public class Battle {
      * Starts a battle
      * @param player current player
      */
-    public static void StartBattle(Student player) {
+    public static void StartBattle(Student player, int battles) {
         Teacher teacher = new Teacher();
         System.out.println("Starting class...");
         //Battle until either the enemy or the teacher run out of hitpoints
@@ -20,7 +20,7 @@ public class Battle {
                     TeacherAttack(player, teacher);
                 }
             } else { // dropped out
-                Menu.GameOver(player, teacher); 
+                Menu.GameOver(player, teacher, battles); 
                 System.exit(0);
             }
         }
@@ -37,7 +37,7 @@ public class Battle {
             player.addToInventory(found_item);
             System.out.println("Added " + found_item + " to inventory");
         } else {
-            Menu.GameOver(player, teacher);
+            Menu.GameOver(player, teacher, battles);
             System.exit(0);
         }
     }

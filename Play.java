@@ -24,11 +24,13 @@ public class Play {
                 + "Vs Teachers...");
         // Number of fights, change this to make game shorter or longer
         final int BATTLES = 10;
+        int battlecount = 0;
         for(int i = 1; i < BATTLES; i++ ) { // Do BATTLES battles
+            battlecount += 1;
             Menu.ShowPreBattleMenu(player);
-            Battle.StartBattle(player);
+            Battle.StartBattle(player, battlecount);
         }
         // Player wins!
-        Menu.WinScreen(player, null);
+        Menu.WinScreen(player, null, battlecount);
     }
 }

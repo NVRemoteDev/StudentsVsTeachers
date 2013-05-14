@@ -117,9 +117,10 @@ public class Student {
         }
     }
     /**
-     * Shows player inventory
+     * Show the players inventory, and equip options if param is true
+     * @param equip true if we show the equip screen
      */
-    public void showPlayerInventory() {
+    public void showPlayerInventory(boolean equip) {
         Scanner input = new Scanner(System.in);
         System.out.println("INVENTORY:");
         for(int i = 0; i < inventory.length; i++) {
@@ -129,9 +130,11 @@ public class Student {
                 }
             }
         }
-        System.out.print(BOLDTEXT + "Enter an item name to equip> " + PLAINTEXT);
-        String item = input.nextLine();
-        equipItem(item);
+        if(equip) {
+            System.out.print(BOLDTEXT + "Enter an item name to equip> " + PLAINTEXT);
+            String item = input.nextLine();
+            equipItem(item);
+        }
     }
     /**
      * Checks if player has an item
