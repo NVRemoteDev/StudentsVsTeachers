@@ -106,10 +106,17 @@ public class Menu {
     public static void GameOver(Student player, Teacher teacher) {
         System.out.println("The classwork was overwhelming! Beaten by " 
                 + teacher.getName());
+        System.out.println(teacher.getName() + "'s HP remaining: " + teacher.getHP());
+        System.out.println(player.getName() + "'s items: ");
         System.exit(0);
     }
-    public static void WinScreen(Student player) {
-        System.out.println("Congratulations " + player + ", you passed school!");
+    public static void WinScreen(Student player, Teacher teacher) {
+        if(teacher == null) { 
+            Teacher teacher1 = new Teacher();
+            teacher = teacher1;
+        }
+        System.out.println("Congratulations " + player + 
+                ", you passed " + teacher.getName() + "'s class!");
         System.exit(0);
     }
 }

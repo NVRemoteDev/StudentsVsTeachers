@@ -1,13 +1,12 @@
 package main;
 
 /**
- * Play class initiates all functions; initialized by main
+ * Play class initiates all functions; initialized by main class
  * @author Anthony Hill
  */
 public class Play {
     /**
      * Start playing the game
-     * 1) Start the main menu so player can choose to
      */
     public static void StartPlaying() {
         if(Menu.MainMenu()) { // Player chose play
@@ -30,6 +29,6 @@ public class Play {
             Battle.StartBattle(player);
         }
         // Player wins!
-        Menu.WinScreen(player);
+        Menu.WinScreen(player, null);
     }
 }
